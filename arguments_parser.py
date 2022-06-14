@@ -66,4 +66,5 @@ class ArgumentsParser:
             lines = file.readlines()
         one_line = ''.join(lines)
         one_line = one_line.rstrip('\n')
+        
         return one_line.split(self.CONTENT_SEPARATOR)
