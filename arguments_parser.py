@@ -58,9 +58,11 @@ class ArgumentsParser:
     def get_credentials_from_file(self, path):
         with open(path, 'r') as file:
             line = file.readline()
-        return line.split(self.CREDENTIALS_SEPARATOR)
+        credentials = line.split(self.CREDENTIALS_SEPARATOR)
+        return credentials[0].lstrip('\n'), credentials[1].lstrip('\n')
 
     def get_content_from_file(self, path):
         with open(path, 'r') as file:
-            line = file.readline()
-        return line.split(self.CONTENT_SEPARATOR)
+            lines = file.readlines()
+        one_line = ''.join(lines)
+        return one_line.split(self.CONTENT_SEPARATOR)
